@@ -69,8 +69,11 @@ def aster():
       #logging.info("reached end of mid point kp {}".format([kp]))
       if(kp>maxp):
         maxi=k
-        maxp=kp
-      
-    ret.append({"input": test, "score": int(str(Decimal(maxp).normalize())), "origin": maxi})
+        maxp=kp  
+    if int(maxp+0.5)>=int(maxp):
+      maxp=float(maxp)
+    else:
+      maxp=int(maxp)
+    ret.append({"input": test, "score": maxp, "origin": maxi})
   logging.info("My result :{}".format(ret))
   return json.dumps(ret)
