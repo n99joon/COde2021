@@ -17,7 +17,7 @@ ymov = [0,1,0,-1,1,1,-1,-1]
 @app.route('/fixedrace', methods=['POST'])
 def fixedrace():
   ret =[]
-  data = request.get_string()
+  data = request.getParameter()
   logging.info("data sent for evaluation {}".format(data))
   tc = data.get("test_cases")
  
