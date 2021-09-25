@@ -46,8 +46,8 @@ def para():
     for dt in data:
       room = dt.get("room")
       grid = dt.get("grid")
-      j = len(grid)
-      i = len(grid[0])
+      i = len(grid)
+      j = len(grid[0])
       indiv = dt.get("interestedIndividuals")
       newGrid = [[-1 for x in range(j)] for y in range (i)]
       newGrid = bfs(grid,newGrid, i, j)
