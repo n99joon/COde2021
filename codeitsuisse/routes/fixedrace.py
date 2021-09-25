@@ -14,7 +14,7 @@ n=0
 dict={}
 edgePointed=[]
 edgePointTo=[]
-sortedL = ['Sang Sirois', 'Marion Mcgahan', 'Olive Osgood', 'Lucas Lucht', 'Warren Wesolowski', 'Rudolf Ravelo']
+sortedL = ['Annamarie Ahern', 'Gaston Glotfelty', 'Emily Eckles', 'Boris Batts', 'Armida Abarca', 'Danae Depuy', 'Anibal Abler', 'Hollis Hohlt', 'Chase Colone', 'Demetrius Dixion', 'Alayna Alberson', 'Vida Veal', 'Cecila Cribb', 'Chantel Corn', 'Lavonna Latson', 'Winfred Wilton', 'Judi Jacquez', 'Ozell Ostrem', 'Marcellus Mallow', 'Synthia Sylvestre', 'Corine Cottrill', 'Gary Ginsburg', 'Douglas Delima', 'Fletcher Felty', 'Judith Juntunen', 'Autumn Acuff', 'Brady Borda', 'Donald Drennen', 'Gilberto Gethers', 'Justa Jeffery', 'Quincy Quiroz', 'Dominque Deshon', 'Lindsey Lamb', 'Florine Faison', 'Livia Luse', 'Yu Yeates', 'Leslie Lubinsky', 'Annalee Angert', 'Lamont Lasch', 'Regenia Rathburn', 'Darren Dudley', 'Sonny Stratford', 'Alanna Ayoub', 'Lola Leyendecker', 'Duane Darrell', 'Stepanie Strang', 'Arron Ammerman', 'Rebekah Regnier', 'Milford Mcqueen', 'Fabian Fogel', 'Valerie Vera', 'Yuette Yurick', 'Kasandra Kroll', 'Napoleon Negrete', 'Derek Duclos', 'Trinity Trueblood', 'Pamula Parrinello', 'Lorita Loeffler', 'Justin Jack', 'Bernadine Brackin', 'Kali Krupp', 'Eva Epping', 'Thanh Tammaro', 'Alex Appleton', 'Shirly Sosebee', 'Bernie Bondy', 'Erwin Ewen', 'Olympia Oliphant']
 inpsplit = []
 
 @app.route('/fixedrace', methods=['POST'])
