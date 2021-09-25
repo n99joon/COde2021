@@ -71,6 +71,6 @@ def aster():
       if(kp>maxp):
         maxi=k
         maxp=kp  
-    ret.append({"input": test, "score": int(math.floor(maxp)), "origin": maxi})
+    ret.append({"input": test, "score": int(maxp), "origin": maxi})
   logging.info("My result :{}".format(ret))
   return json.dumps(ret)
