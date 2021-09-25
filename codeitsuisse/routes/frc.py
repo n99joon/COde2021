@@ -64,8 +64,8 @@ def myinput(winner):
   return sortedL
 
 
-@app.route('/fixedrace', methods=['POST'])
-def fixedr():
+@app.route('/frc', methods=['POST'])
+def frc():
   global n
   global dict
   global edgePointed
