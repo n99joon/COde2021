@@ -25,17 +25,11 @@ def myinput(winner):
   global inpsplit
   edgePointedT=copy.deepcopy(edgePointed)
   edgePointToT=copy.deepcopy(edgePointTo)
-  logging.info("inpsplit :{}".format(inpsplit))
-  winnerkey = dict.get(winner)
-  logging.info("dict :{}".format(dict))
-  logging.info("winnerkey :{}".format(winnerkey))
-  for t in inpsplit:
-    if t!=winner:
-      logging.info("t :{}".format(t))
-      loserkey = dict.get(t)
-      logging.info("loserkey :{}".format(loserkey))
-      edgePointedT[loserkey].append(winnerkey)
-      edgePointToT[winnerkey].append(loserkey)
+  #logging.info("inpsplit :{}".format(inpsplit))
+  
+  #logging.info("dict :{}".format(dict))
+  #logging.info("winnerkey :{}".format(winnerkey))
+  
   
   queue = []
   #Calcualte the sorted array with Kuhn algorithm(ts)
@@ -60,8 +54,7 @@ def myinput(winner):
             ppkey=g
             break
         queue.append(ppkey)
-  logging.info("My result :{}".format(sortedL))
-  return sortedL
+  return
 
 
 @app.route('/frc', methods=['POST'])
@@ -72,35 +65,31 @@ def frc():
   global edgePointTo
   global sortedL
   global inpsplit
-  data=request.data
-  logging.info("data sent for evaluation {}".format(data))
-  data=str(data)
-  data=data[2:-1]
-  if(data[0]=="0"):
-    winner = data[1:]
-    myinput(winner)
-  else:
-    inp =data
-    ans=""
-    inpsplit = inp.split(",")
+  ret=[]
+  lis=request.get_json()
+  cnt = 0
+  for li in lis:
+    inpsplit = li.get("person")
+    winner = li.get("winner")
+    
+    #inp =data
     for a in inpsplit:
       if not a in dict:
         dict[a]=n
         edgePointed.append([-1])
         edgePointTo.append([-1])
         n+=1
-    for b in sortedL:
-      if b in inpsplit:
-        ret.append(b)
-        ans+=b
-        ans+=","
-    ans=ans[:-1]
-    if len(ret)<10:
-      logging.info("not yet :{}".format(ret))
-      logging.info("cur dict : {}".format(dict))
-      logging.info("edgePointed :{}".format(edgePointed))
-      logging.info("edgePointTo :{}".format(edgePointTo))
-      return json.dumps([])
-    else:
-      logging.info("My result :{}".format(ans))
-      return ans
+    winnerkey = dict.get(winner)
+    for t in inpsplit:
+    if t!=winner:
+      #logging.info("t :{}".format(t))
+      loserkey = dict.get(t)
+      #logging.info("loserkey :{}".format(loserkey))
+      if not winnerkey in edgePointed[loserkey]:
+        edgePointed[loserkey].append(winnerkey)
+      if not loserkey in edgePointTo[winnerkey]:
+        edgePointTo[winnerkey].append(loserkey)
+    if(cnt==len(lis)-1):
+      myinput(winner)  
+    cnt+=1
+  return sortedL  
