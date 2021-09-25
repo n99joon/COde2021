@@ -31,6 +31,7 @@ def bfs(grid,newGrid, i, j):
             newGrid[ni][nj]=newGrid[curi][curj]+1;
             grid[ni][nj]=3;
             queue.append([ni,nj])
+    newGrid[start[0]][start[1]]=-1
     return newGrid
     
     
