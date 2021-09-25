@@ -58,5 +58,5 @@ def para():
         nj = int(k[idx+1:])
         pOne[k]=newGrid[ni][nj]
       ret.append({"room": room, "p1": pOne, "p2": 0, "p3": 0, "p4": 0})
-      logging.info("My result :{}".format(ans))
+      logging.info("My result :{}".format(ret))
     return json.dumps(ret)
