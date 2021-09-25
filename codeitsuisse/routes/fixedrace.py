@@ -23,30 +23,33 @@ def myinput(winner):
   global edgePointTo
   global sortedL
   global inpsplit
+  edgePointedT=copy.deepcopy(edgePointed)
+  edgePointToT=copy.deepcopy(edgePointTo)
+
   winnerkey = dict.get(winner)
   for t in inpsplit:
     if t!=winner:
       loserkey = dict.get(t)
-      edgePointed[loserkey].append(winnerkey)
-      edgePointTo[winnerkey].append(loserkey)
+      edgePointedT[loserkey].append(winnerkey)
+      edgePointToT[winnerkey].append(loserkey)
   
   queue = []
   #Calcualte the sorted array with Kuhn algorithm(ts)
   #find nodes not being pointed
   for m in dict:
-    if len(edgePointed[dict.get(m)])==1:
+    if len(edgePointedT[dict.get(m)])==1:
       queue.append(m)
   sortedL=[]
   while len(queue)>0:
     front = queue.pop(0)
     frontkey = dict.get(front)
     sortedL.append(front)
-    for pp in edgePointTo[frontkey]:
+    for pp in edgePointToT[frontkey]:
       if pp == -1:
         continue
-      edgePointed[pp].remove(frontkey)
-      edgePointTo[frontkey].remove(pp)
-      if len(edgePointed[pp]) == 1:
+      edgePointedT[pp].remove(frontkey)
+      edgePointToT[frontkey].remove(pp)
+      if len(edgePointedT[pp]) == 1:
         ppkey=" "
         for g in dict:
           if dict.get(g)==pp:
@@ -69,7 +72,7 @@ def fixedr():
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
   data=str(data)
-  data=data[2:-1]
+  data=data[2:]
   if(data[0]=="0"):
     winner = data[1:]
     myinput(winner)
