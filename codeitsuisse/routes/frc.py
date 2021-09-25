@@ -72,7 +72,6 @@ def frc():
   global edgePointTo
   global sortedL
   global inpsplit
-  ret=[]
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
   data=str(data)
