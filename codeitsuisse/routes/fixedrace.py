@@ -36,3 +36,8 @@ def fixedr():
   logging.info("inpsplit :{}".format(inpsplit))
   logging.info("My result :{}".format(inp))
   return inp
+  
+#  for a in sortedL:
+#    if a in inpsplit:
+#      ans+=a
+#  return ans
