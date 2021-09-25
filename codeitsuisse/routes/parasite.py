@@ -11,9 +11,11 @@ xmov = [1,0,-1,0]
 ymov = [0,1,0,-1]
 
 def bfs(grid,newGrid, i, j):
-    
+    logging.info("i,j : {}".format([i,j]))
     for x in range(i):
         for y in range(j):
+            logging.info("x : {}".format(x))
+            logging.info("y : {}".format(y))
             if grid[x][y]==3:
                 start = [x,y];
                 newGrid[x][y]=0
