@@ -98,7 +98,7 @@ def para():
             tt = -1
             break
 
-      ThrL = bfs(grid,newGrid,i,j)
+      ThrL = bfsthree(grid,newGrid,i,j)
       infectedG = ThrL[0]
       ttt = ThrL[1]
       for x in range (i):
