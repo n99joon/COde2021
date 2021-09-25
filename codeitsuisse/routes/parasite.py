@@ -11,10 +11,12 @@ xmov = [1,0,-1,0]
 ymov = [0,1,0,-1]
 
 def bfs(grid,newGrid, i, j):
+    timeTaken=0
     logging.info("i,j : {}".format([i,j]))
     for x in range(i):
         for y in range(j):
-            logging.info("x,y : {}".format([x,y]))
+            logging.info("x : {}".format(x))
+            logging.info("y : {}".format(y))
             if grid[x][y]==3:
                 start = [x,y];
                 newGrid[x][y]=0
@@ -30,10 +32,11 @@ def bfs(grid,newGrid, i, j):
         if (ni>=0 and ni<i and nj>=0 and nj<j):
           if(grid[ni][nj]==1):
             newGrid[ni][nj]=newGrid[curi][curj]+1;
+            timeTaken=max(newGrid[ni][nj],timeTaken)
             grid[ni][nj]=3;
             queue.append([ni,nj])
     newGrid[start[0]][start[1]]=-1
-    return newGrid
+    return [newGrid,grid,timeTaken]
     
     
             
@@ -46,18 +49,28 @@ def para():
     for dt in data:
       room = dt.get("room")
       grid = dt.get("grid")
-      i = len(grid)
-      j = len(grid[0])
+      j = len(grid)
+      i = len(grid[0])
       indiv = dt.get("interestedIndividuals")
       newGrid = [[-1 for x in range(j)] for y in range (i)]
-      newGrid = bfs(grid,newGrid, i, j)
-      
+      newL = bfs(grid,newGrid, i, j)
+      newGrid = newL[0]
+      infectedGrid = newL[1]
+      timeTaken = newL[2]
+
       pOne={}
       for k in indiv:
         idx = k.find(',')
         ni = int(k[:idx])
         nj = int(k[idx+1:])
         pOne[k]=newGrid[ni][nj]
-      ret.append({"room": room, "p1": pOne, "p2": 0, "p3": 0, "p4": 0})
+      
+      for x in range i:
+        for y in range j:
+          if infectedGrid[i][j]==1:
+            timeTaken = -1
+            break
+
+      ret.append({"room": room, "p1": pOne, "p2": timeTaken, "p3": 0, "p4": 0})
       logging.info("My result :{}".format(ret))
     return json.dumps(ret)
