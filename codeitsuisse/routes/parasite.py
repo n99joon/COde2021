@@ -1,6 +1,7 @@
 import logging
 import json
 import copy
+import heapq
 
 from flask import request, jsonify
 
@@ -68,6 +69,47 @@ def bfsthree(gridT,newgridT, i, j):
     newgridT[start[0]][start[1]]=-1
     return [gridT,timeTaken]    
             
+def bfsfour(gridF, i, j):
+    enerTaken=0
+    logging.info("i,j : {}".format([i,j]))
+    for x in range(i):
+        for y in range(j):
+            logging.info("x,y : {}".format([x,y]))
+            if gridF[x][y]==3:
+                start = [x,y];
+                #newgridF[x][y]=0
+                break
+    logging.info("start {}".format(start))
+    logging.info("gridF {}".format(gridF))
+    #logging.info("newgridF {}".format(newgridF))
+    start.insert(0,0)
+    heap=[]
+    heapq.heappush(heap,(start.val,0,start))
+    cntr = 0
+    while heap:
+      cntr = cntr+1
+      v = heapq.heappop(heap)
+      energy = v[0]
+      curi = v[1]
+      curj = v[2]
+      for k in range(8):
+        ni = curi+ymov[k]
+        nj = curj+xmov[k]
+        if (ni>=0 and ni<i and nj>=0 and nj<j):
+          if(gridF[ni][nj]==1):
+            gridF[ni][nj]=3;
+            curcnt = copy.deepcopy(cntr)
+            nel = [energy,ni,nj]
+            heapq.heappush(heap,(nel.val, curcnt, nel))
+          else if(k<4 and gridF[ni][nj]!=3):
+            gridF[ni][nj]==3;
+            curcnt = copy.deepcopy(cntr)
+            nel = [energy+1,ni,nj]
+            enerTaken=max(enerTaken,energy+1)
+            heapq.heappush(heap,(nel.val, curcnt, nel))
+
+    
+    return enerTaken 
 
 @app.route('/parasite', methods=['POST'])
 def para():
@@ -84,6 +126,9 @@ def para():
 
       gridT = copy.deepcopy(grid)
       newgridT = [[-1 for x in range(j)] for y in range (i)]
+
+      gridF = copy.deepcopy(gridF)
+      #newgridF = [[-1 for x in range(j)] for y in range (i)]
 
       newL = bfs(grid,newGrid, i, j)
       newGrido = newL[0]
@@ -112,6 +157,8 @@ def para():
           if infectedG[x][y]==1:
             ttt = -1
             break
-      ret.append({"room": room, "p1": pOne, "p2": tt, "p3": ttt, "p4": 0})
+
+      tttt = bfsfour(gridF,i,j)
+      ret.append({"room": room, "p1": pOne, "p2": tt, "p3": ttt, "p4": tttt})
       logging.info("My result :{}".format(ret))
     return json.dumps(ret)
