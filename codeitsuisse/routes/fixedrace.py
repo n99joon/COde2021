@@ -17,7 +17,7 @@ edgePointTo=[]
 sortedL = []
 inpsplit = []
 
-def myinput(winner, inpsplit):
+def myinput(winner):
   global dict
   global edgePointed
   global edgePointTo
