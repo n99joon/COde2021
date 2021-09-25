@@ -18,9 +18,7 @@ ymov = [0,1,0,-1,1,1,-1,-1]
 def fixedr():
   ret =[]
   data=request.data
-  logging.info("data sent for evaluation {}".format(fixedrace))
-  tc = data.get("test_cases")
+  logging.info("data sent for evaluation {}".format(data))
  
-  ret.append({"input": test, "score": maxp, "origin": maxi})
   logging.info("My result :{}".format(ret))
   return json.dumps(ret)
