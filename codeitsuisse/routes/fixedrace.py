@@ -34,10 +34,26 @@ def fixedr():
   ans=""
   inpsplit = inp.split(",")
   logging.info("inpsplit :{}".format(inpsplit))
-  logging.info("My result :{}".format(inp))
-  return inp
+  #logging.info("My result :{}".format(inp))
+  #return inp
   
-#  for a in sortedL:
-#    if a in inpsplit:
-#      ans+=a
-#  return ans
+  cnt=0
+  anslis=[]
+  for a in sortedL:
+    if a in inpsplit:
+      ans+=a
+      ans+=","
+      cnt+=1
+      anslis.append(a)
+  while cnt < 10:
+    for a in inpsplit:
+      if not a in anslis:
+        anslis.append(a)
+        ans+=a
+        ans+=","
+        cnt+=1
+        if cnt==10:
+          break
+  ans=ans[:-1]
+  logging.info("My result :{}".format(ans))
+  return ans
