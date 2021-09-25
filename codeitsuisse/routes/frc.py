@@ -93,4 +93,4 @@ def frc():
     if(cnt==len(lis)-1):
       myinput(winner)  
     cnt+=1
-  return sortedL  
+  return "hi" 
