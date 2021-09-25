@@ -15,8 +15,7 @@ def bfs(grid,newGrid, i, j):
     logging.info("i,j : {}".format([i,j]))
     for x in range(i):
         for y in range(j):
-            logging.info("x : {}".format(x))
-            logging.info("y : {}".format(y))
+            logging.info("x,y : {}".format([x,y]))
             if grid[x][y]==3:
                 start = [x,y];
                 newGrid[x][y]=0
@@ -43,8 +42,7 @@ def bfsthree(grid,newGrid, i, j):
     logging.info("i,j : {}".format([i,j]))
     for x in range(i):
         for y in range(j):
-            logging.info("x : {}".format(x))
-            logging.info("y : {}".format(y))
+            logging.info("x,y : {}".format([x,y]))
             if grid[x][y]==3:
                 start = [x,y];
                 newGrid[x][y]=0
