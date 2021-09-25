@@ -18,6 +18,11 @@ sortedL = []
 inpsplit = []
 
 def myinput(winner, inpsplit):
+  global dict
+  global edgePointed
+  global edgePointTo
+  global sortedL
+  global inpsplit
   winnerkey = dict.get(winner)
   for t in inpsplit:
     if t!=winner:
@@ -54,7 +59,12 @@ def myinput(winner, inpsplit):
 
 @app.route('/fixedrace', methods=['POST'])
 def fixedr():
-  ret =[]
+  global n
+  global dict
+  global edgePointed
+  global edgePointTo
+  global sortedL
+  global inpsplit
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
   data=str(data)
