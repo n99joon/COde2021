@@ -11,7 +11,11 @@ logger = logging.getLogger(__name__)
 def para():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    inputValue = data.get("input")
-    result = inputValue * inputValue
+    room = data.get("room")
+    grid = data.get("grid")
+    j = len(grid)
+    i = len(grid[0])
+    indiv = data.get("interestedIndividuals")
+    result = (i,j)
     logging.info("My result :{}".format(result))
     return json.dumps(result)
