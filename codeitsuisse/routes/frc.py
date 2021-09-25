@@ -39,6 +39,8 @@ def myinput(winner):
       queue.append(m)
   logging.info("dict :{}".format(dict))
   logging.info("queue :{}".format(queue))
+  logging.info("edgePointTo :{}".format(edgePointToT))
+  logging.info("edgePointedT :{}".format(edgePointedT))
   sortedL=[]
   while len(queue)>0:
     front = queue.pop(0)
