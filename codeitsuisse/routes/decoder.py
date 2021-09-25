@@ -13,6 +13,8 @@ logger = logging.getLogger(__name__)
 @app.route('/decoder', methods=['POST'])
 def decoder():
   data=request.data
+  data=str(data)
+  data=data[2:-1]
   logging.info("data sent for evaluation {}".format(data))
   pv = data.get("possible_values")
   num = data.get("num_slots")
