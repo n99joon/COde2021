@@ -14,5 +14,5 @@ logger = logging.getLogger(__name__)
 def decoder():
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
-  ans=[]
+  ans=""
   return ans
