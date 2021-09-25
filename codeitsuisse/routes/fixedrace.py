@@ -19,6 +19,7 @@ def fixedr():
   ret =[]
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
- 
+  data=request.data
+  logging.info("data sent for evaluation {}".format(data))
   logging.info("My result :{}".format(ret))
   return json.dumps(ret)
