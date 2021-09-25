@@ -127,7 +127,7 @@ def para():
       gridT = copy.deepcopy(grid)
       newgridT = [[-1 for x in range(j)] for y in range (i)]
 
-      gridF = copy.deepcopy(gridF)
+      gridF = copy.deepcopy(grid)
       #newgridF = [[-1 for x in range(j)] for y in range (i)]
 
       newL = bfs(grid,newGrid, i, j)
