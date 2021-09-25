@@ -6,3 +6,4 @@ import codeitsuisse.routes.arena
 import codeitsuisse.routes.parasite
 import codeitsuisse.routes.asteroid
 import codeitsuisse.routes.fixedrace
+import codeitsuisse.routes.frc
