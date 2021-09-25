@@ -81,14 +81,14 @@ def frc():
         n+=1
     winnerkey = dict.get(winner)
     for t in inpsplit:
-    if t!=winner:
-      #logging.info("t :{}".format(t))
-      loserkey = dict.get(t)
-      #logging.info("loserkey :{}".format(loserkey))
-      if not winnerkey in edgePointed[loserkey]:
-        edgePointed[loserkey].append(winnerkey)
-      if not loserkey in edgePointTo[winnerkey]:
-        edgePointTo[winnerkey].append(loserkey)
+      if t!=winner:
+        #logging.info("t :{}".format(t))
+        loserkey = dict.get(t)
+        #logging.info("loserkey :{}".format(loserkey))
+        if not winnerkey in edgePointed[loserkey]:
+          edgePointed[loserkey].append(winnerkey)
+        if not loserkey in edgePointTo[winnerkey]:
+          edgePointTo[winnerkey].append(loserkey)
     if(cnt==len(lis)-1):
       myinput(winner)  
     cnt+=1
