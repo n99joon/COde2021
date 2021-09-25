@@ -98,7 +98,7 @@ def bfsfour(gridF, i, j):
         nj = curj+xmov[k]
         if (ni>=0 and ni<i and nj>=0 and nj<j):
           if(gridF[ni][nj]==1):
-            enerTaken=max(enerTaken,energy+1)
+            enerTaken=max(enerTaken,energy)
             gridF[ni][nj]=3;
             curcnt = copy.deepcopy(cntr)
             nel = [energy,ni,nj]
