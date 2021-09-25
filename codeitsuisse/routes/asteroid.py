@@ -36,7 +36,7 @@ def aster():
         curp = 0
         if(j==k+1 and test[k]==test[j] and test[j]==test[k-1]):
           curp+=1
-        else:
+        elif(j==k+1):
           kp+=1
         #doesn't match
         if(test[j]!=stack[-1]):
