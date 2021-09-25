@@ -14,5 +14,9 @@ logger = logging.getLogger(__name__)
 def decoder():
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
-  ans=""
+  pv = data.get("possible_values")
+  num = data.get("num_slots")
+  history = data.get("history")
+  ans=['u','d','g','w','i']
+
   return ans
