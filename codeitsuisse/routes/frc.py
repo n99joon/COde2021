@@ -48,6 +48,7 @@ def myinput(winner):
     sortedL.append(front)
     logging.info("current front:{}".format([front,frontkey]))
     for pp in edgePointToT[frontkey]:
+      logging.info("pp :{}".format(pp))
       if pp == -1:
         continue
       edgePointedT[pp].remove(frontkey)
