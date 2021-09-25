@@ -93,4 +93,5 @@ def frc():
     if(cnt==len(lis)-1):
       myinput(winner)  
     cnt+=1
+  logging.info("sorted :{}".format(sortedL))
   return "hi" 
