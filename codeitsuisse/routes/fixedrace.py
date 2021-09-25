@@ -90,7 +90,8 @@ def fixedr():
     ans=ans[:-1]
     if len(ret)<10:
       logging.info("not yet :{}".format(ret))
-      return ""
+      logging.info("cur dict : {}".format(dict))
+      return json.dumps([])
     else:
       logging.info("My result :{}".format(ans))
       return ans
