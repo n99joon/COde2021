@@ -14,7 +14,7 @@ n=0
 dict={}
 edgePointed=[]
 edgePointTo=[]
-sortedL = []
+sortedL = ['Sang Sirois', 'Marion Mcgahan', 'Olive Osgood', 'Lucas Lucht', 'Warren Wesolowski', 'Rudolf Ravelo']
 inpsplit = []
 
 @app.route('/fixedrace', methods=['POST'])
