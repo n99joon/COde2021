@@ -25,11 +25,15 @@ def myinput(winner):
   global inpsplit
   edgePointedT=copy.deepcopy(edgePointed)
   edgePointToT=copy.deepcopy(edgePointTo)
-
+  logging.info("inpsplit :{}".format(inpsplit))
   winnerkey = dict.get(winner)
+  logging.info("dict :{}".format(dict))
+  logging.info("winnerkey :{}".format(winnerkey))
   for t in inpsplit:
     if t!=winner:
+      logging.info("t :{}".format(t))
       loserkey = dict.get(t)
+      logging.info("loserkey :{}".format(loserkey))
       edgePointedT[loserkey].append(winnerkey)
       edgePointToT[winnerkey].append(loserkey)
   
