@@ -46,6 +46,7 @@ def myinput(winner):
     front = queue.pop(0)
     frontkey = dict.get(front)
     sortedL.append(front)
+    logging.info("current front:{}".format([front,frontkey]))
     for pp in edgePointToT[frontkey]:
       if pp == -1:
         continue
@@ -55,13 +56,15 @@ def myinput(winner):
       logging.info("edgePointedT :{}".format(edgePointedT))
       if len(edgePointedT[pp]) == 1:
         ppkey=" "
+        #logging.info("ppkey :{}".format(ppkey))
         for g in dict:
           if dict.get(g)==pp:
             ppkey=g
+            logging.info("ppkey :{}".format(ppkey))
             break
 
         queue.append(ppkey)
-      logging.info("ppkey :{}".format(ppkey))
+      
     logging.info("queue :{}".format(queue))
   return
 
