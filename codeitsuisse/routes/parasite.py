@@ -41,21 +41,22 @@ def bfs(grid,newGrid, i, j):
 def para():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    room = data.get("room")
-    grid = data.get("grid")
-    j = len(grid)
-    i = len(grid[0])
-    indiv = data.get("interestedIndividuals")
-    newGrid = [[-1 for x in range(j)] for y in range (i)]
-    newGrid = bfs(grid,newGrid, i, j)
-    
-    pOne={}
-    for k in indiv:
-      idx = k.find(',')
-      ni = int(k[:idx])
-      nj = int(k[idx+1:])
-      pOne[k]=newGrid[ni][nj]
-    ans = []
-    ans.append({"room": room, "p1": pOne})
-    logging.info("My result :{}".format(ans))
-    return json.dumps(ans)
+    for dt in data:
+      room = data.get("room")
+      grid = data.get("grid")
+      j = len(grid)
+      i = len(grid[0])
+      indiv = data.get("interestedIndividuals")
+      newGrid = [[-1 for x in range(j)] for y in range (i)]
+      newGrid = bfs(grid,newGrid, i, j)
+      
+      pOne={}
+      for k in indiv:
+        idx = k.find(',')
+        ni = int(k[:idx])
+        nj = int(k[idx+1:])
+        pOne[k]=newGrid[ni][nj]
+      ans = []
+      ans.append({"room": room, "p1": pOne, "p2": 0, "p3": 0, "p4": 0})
+      logging.info("My result :{}".format(ans))
+      return json.dumps(ans)
