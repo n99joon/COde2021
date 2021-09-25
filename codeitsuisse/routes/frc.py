@@ -37,6 +37,8 @@ def myinput(winner):
   for m in dict:
     if len(edgePointedT[dict.get(m)])==1:
       queue.append(m)
+  logging.info("dict :{}".format(dict))
+  logging.info("queue :{}".format(queue))
   sortedL=[]
   while len(queue)>0:
     front = queue.pop(0)
@@ -54,6 +56,7 @@ def myinput(winner):
             ppkey=g
             break
         queue.append(ppkey)
+    logging.info("queue :{}".format(queue))
   return
 
 
@@ -67,7 +70,6 @@ def frc():
   global inpsplit
   ret=[]
   lis=request.get_json()
-  logging.info("t :{}".format(lis))
   cnt = 0
   for li in lis:
     inpsplit = li.get("person")
@@ -93,5 +95,4 @@ def frc():
     if(cnt==len(lis)-1):
       myinput(winner)  
     cnt+=1
-  logging.info("sorted :{}".format(sortedL))
-  return "hi" 
+  return sortedL  
