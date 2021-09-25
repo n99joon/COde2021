@@ -2,6 +2,7 @@ import logging
 import json
 import copy
 from decimal import Decimal
+import math
 
 from flask import request, jsonify
 
@@ -25,7 +26,7 @@ def aster():
     #moving middle points
     for k in range(len(test)):
       #logging.info("k {}".format(k))
-      kp =0.0
+      kp =0
       if (k==0 or k==len(test)-1):
         continue
       stack=[]
@@ -70,10 +71,10 @@ def aster():
       if(kp>maxp):
         maxi=k
         maxp=kp  
-    if int(maxp+0.5)>=int(maxp):
-      maxp=float(maxp)
+    if (math.floor(maxp+0.5))>=math.floor(maxp):
+      maxp=maxp
     else:
-      maxp=int(maxp)
+      maxp=int(math.floor(maxp))
     ret.append({"input": test, "score": maxp, "origin": maxi})
   logging.info("My result :{}".format(ret))
   return json.dumps(ret)
