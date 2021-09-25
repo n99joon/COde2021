@@ -67,6 +67,7 @@ def frc():
   global inpsplit
   ret=[]
   lis=request.get_json()
+  logging.info("t :{}".format(lis))
   cnt = 0
   for li in lis:
     inpsplit = li.get("person")
