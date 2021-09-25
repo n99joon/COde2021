@@ -65,6 +65,7 @@ def fixedr():
   global edgePointTo
   global sortedL
   global inpsplit
+  ret=[]
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
   data=str(data)
@@ -83,10 +84,13 @@ def fixedr():
         n+=1
     for b in sortedL:
       if b in inpsplit:
+        ret.append(b)
         ans+=b
         ans+=","
     ans=ans[:-1]
-    logging.info("My result :{}".format(ans))
-    return ans
-
-
+    if len(ret)<10:
+      logging.info("not yet :{}".format(ret))
+      return ""
+    else:
+      logging.info("My result :{}".format(ans))
+      return ans
