@@ -109,7 +109,7 @@ def bfsfour(gridF, i, j):
             nel = [energy+1,ni,nj]
             heapq.heappush(heap,(nel,curcnt))
 
-    
+    logging.info("enerTaken is {}".format(enerTaken))
     return enerTaken 
 
 @app.route('/parasite', methods=['POST'])
