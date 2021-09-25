@@ -32,7 +32,7 @@ def aster():
       j = k+1
       while j<len(test) and len(stack)>0:
         curp = 0
-        if(j==k+1 && test[k]==test[j]):
+        if(j==k+1 and test[k]==test[j]):
           curp+=1
         else:
           kp+=1
