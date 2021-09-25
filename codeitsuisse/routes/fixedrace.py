@@ -72,7 +72,7 @@ def fixedr():
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
   data=str(data)
-  data=data[2:]
+  data=data[2:-1]
   if(data[0]=="0"):
     winner = data[1:]
     myinput(winner)
