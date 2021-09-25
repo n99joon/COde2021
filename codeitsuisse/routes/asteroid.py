@@ -18,7 +18,7 @@ ymov = [0,1,0,-1,1,1,-1,-1]
 def aster():
   ret =[]
   data = request.get_json()
-  logging.info("data sent for evaluation {}".format(data))
+  #logging.info("data sent for evaluation {}".format(data))
   tc = data.get("test_cases")
   for test in tc:
     maxp=0.0
@@ -72,5 +72,5 @@ def aster():
         maxi=k
         maxp=kp  
     ret.append({"input": test, "score": int(maxp), "origin": maxi})
-  logging.info("My result :{}".format(ret))
+  #logging.info("My result :{}".format(ret))
   return json.dumps(ret)
