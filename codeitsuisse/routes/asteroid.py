@@ -44,7 +44,7 @@ def aster():
           #logging.info("doesnt match: kp & maxi & maxp {}".format([kp,maxi,maxp]))
           if(curp<=6):
             kp+=curp
-          elif(curp<=10):
+          elif(curp<10):
             kp+=1.5*curp
           else:
             kp+=curp*2
@@ -62,7 +62,7 @@ def aster():
           j+=1
         if(curp<=6):
           kp+=curp
-        elif(curp<=10):
+        elif(curp<10):
           kp+=1.5*curp
         else:
           kp+=curp*2
