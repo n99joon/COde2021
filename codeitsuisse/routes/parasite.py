@@ -56,7 +56,7 @@ def para():
       newL = bfs(grid,newGrid, i, j)
       newGrid = newL[0]
       infectedGrid = newL[1]
-      timeTaken = newL[2]
+      tt = newL[2]
 
       pOne={}
       for k in indiv:
@@ -68,7 +68,7 @@ def para():
       for x in range i:
         for y in range j:
           if infectedGrid[i][j]==1:
-            timeTaken = -1
+            tt = -1
             break
 
       ret.append({"room": room, "p1": pOne, "p2": timeTaken, "p3": 0, "p4": 0})
