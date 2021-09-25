@@ -52,7 +52,7 @@ def myinput(winner):
       if pp == -1:
         continue
       edgePointedT[pp].remove(frontkey)
-      edgePointToT[frontkey].remove(pp)
+      
       logging.info("edgePointTo :{}".format(edgePointToT))
       logging.info("edgePointedT :{}".format(edgePointedT))
       if len(edgePointedT[pp]) == 1:
@@ -65,7 +65,7 @@ def myinput(winner):
             break
 
         queue.append(ppkey)
-      
+    edgePointToT[frontkey]=[-1]
     logging.info("queue :{}".format(queue))
   return
 
