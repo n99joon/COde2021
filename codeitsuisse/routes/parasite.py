@@ -65,8 +65,8 @@ def para():
         nj = int(k[idx+1:])
         pOne[k]=newGrid[ni][nj]
       
-      for x in range i:
-        for y in range j:
+      for x in range (i):
+        for y in range (j):
           if infectedGrid[i][j]==1:
             tt = -1
             break
