@@ -1,7 +1,6 @@
 import logging
 import json
 import copy
-from decimal import Decimal
 import math
 
 from flask import request, jsonify
@@ -71,6 +70,8 @@ def aster():
       if(kp>maxp):
         maxi=k
         maxp=kp  
-    ret.append({"input": test, "score": int(maxp), "origin": maxi})
+    if (maxp).is_integer():
+      maxp=int(maxp)  
+    ret.append({"input": test, "score": maxp, "origin": maxi})
   #logging.info("My result :{}".format(ret))
   return json.dumps(ret)
