@@ -14,7 +14,7 @@ xmov = [1,0,-1,0,1,-1,-1,1]
 ymov = [0,1,0,-1,1,1,-1,-1]
 
 
-@app.route('/fixedrace', methods=['GET'])
+@app.route('/fixedrace', methods=['POST'])
 def fixedr():
   ret =[]
   data = request.json.get()
