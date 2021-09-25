@@ -17,9 +17,9 @@ ymov = [0,1,0,-1,1,1,-1,-1]
 @app.route('/fixedrace', methods=['POST'])
 def fixedr():
   ret =[]
-  data=request.data
-  logging.info("data sent for evaluation {}".format(data))
-  data=request.data
-  logging.info("data sent for evaluation {}".format(data))
+  for x in range(5000):
+    data=request.data
+    logging.info("data sent for evaluation {}".format(data))
+ 
   logging.info("My result :{}".format(ret))
   return json.dumps(ret)
