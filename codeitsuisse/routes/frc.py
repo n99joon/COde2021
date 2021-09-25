@@ -51,13 +51,17 @@ def myinput(winner):
         continue
       edgePointedT[pp].remove(frontkey)
       edgePointToT[frontkey].remove(pp)
+      logging.info("edgePointTo :{}".format(edgePointToT))
+      logging.info("edgePointedT :{}".format(edgePointedT))
       if len(edgePointedT[pp]) == 1:
         ppkey=" "
         for g in dict:
           if dict.get(g)==pp:
             ppkey=g
             break
+
         queue.append(ppkey)
+      logging.info("ppkey :{}".format(ppkey))
     logging.info("queue :{}".format(queue))
   return
 
