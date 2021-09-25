@@ -14,10 +14,10 @@ xmov = [1,0,-1,0,1,-1,-1,1]
 ymov = [0,1,0,-1,1,1,-1,-1]
 
 
-@app.route('/fixedrace', methods=['POST'])
-def fixedrace():
+@app.route('/fixedrace', methods=['GET'])
+def fixedr():
   ret =[]
-  data = request.getParameter()
+  data = request.json.get()
   logging.info("data sent for evaluation {}".format(data))
   tc = data.get("test_cases")
  
