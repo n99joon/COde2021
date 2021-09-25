@@ -101,7 +101,7 @@ def bfsfour(gridF, i, j):
             curcnt = copy.deepcopy(cntr)
             nel = [energy,ni,nj]
             heapq.heappush(heap,(nel.val, curcnt, nel))
-          else if(k<4 and gridF[ni][nj]!=3):
+          elif(k<4 and gridF[ni][nj]!=3):
             gridF[ni][nj]==3;
             curcnt = copy.deepcopy(cntr)
             nel = [energy+1,ni,nj]
