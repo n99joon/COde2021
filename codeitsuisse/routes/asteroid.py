@@ -54,7 +54,7 @@ def aster():
         #matches
         while len(stack)>0 and stack[-1]==test[j]:
           curp+=1
-          stack.pop
+          stack.pop()
         p = copy.deepcopy(j)
         while j<len(test) and test[p]==test[j]:
           curp+=1
