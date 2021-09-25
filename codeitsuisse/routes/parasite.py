@@ -93,7 +93,7 @@ def bfsfour(gridF, i, j):
       energy = v[0][0]
       curi = v[0][1]
       curj = v[0][2]
-      for k in range(8):
+      for k in range(4):
         ni = curi+ymov[k]
         nj = curj+xmov[k]
         if (ni>=0 and ni<i and nj>=0 and nj<j):
@@ -103,7 +103,7 @@ def bfsfour(gridF, i, j):
             curcnt = copy.deepcopy(cntr)
             nel = [energy,ni,nj]
             heapq.heappush(heap,(nel, curcnt))
-          elif(k<4 and gridF[ni][nj]!=3):
+          elif(gridF[ni][nj]!=3):
             gridF[ni][nj]=3;
             curcnt = copy.deepcopy(cntr)
             nel = [energy+1,ni,nj]
