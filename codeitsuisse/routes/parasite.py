@@ -90,9 +90,9 @@ def bfsfour(gridF, i, j):
       cntr = cntr+1
       v = heapq.heappop(heap)
       logging.info("v is {}".format(v))
-      energy = v[0]
-      curi = v[1]
-      curj = v[2]
+      energy = v[0][0]
+      curi = v[0][1]
+      curj = v[0][2]
       for k in range(8):
         ni = curi+ymov[k]
         nj = curj+xmov[k]
