@@ -100,7 +100,7 @@ def bfsfour(gridF, i, j):
             gridF[ni][nj]=3;
             curcnt = copy.deepcopy(cntr)
             nel = [energy,ni,nj]
-            heapq.heappush(heap,(nel.val, curcnt, nel))
+            heapq.heappush(heap,(nel, curcnt))
           elif(k<4 and gridF[ni][nj]!=3):
             gridF[ni][nj]==3;
             curcnt = copy.deepcopy(cntr)
@@ -127,7 +127,7 @@ def para():
       gridT = copy.deepcopy(grid)
       newgridT = [[-1 for x in range(j)] for y in range (i)]
 
-      gridF = copy.deepcopy(gridF)
+      gridF = copy.deepcopy(grid)
       #newgridF = [[-1 for x in range(j)] for y in range (i)]
 
       newL = bfs(grid,newGrid, i, j)
