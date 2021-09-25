@@ -84,7 +84,7 @@ def bfsfour(gridF, i, j):
     #logging.info("newgridF {}".format(newgridF))
     start.insert(0,0)
     heap=[]
-    heapq.heappush(heap,(start.val,0,start))
+    heapq.heappush(heap,(start,0))
     cntr = 0
     while heap:
       cntr = cntr+1
@@ -106,7 +106,7 @@ def bfsfour(gridF, i, j):
             curcnt = copy.deepcopy(cntr)
             nel = [energy+1,ni,nj]
             enerTaken=max(enerTaken,energy+1)
-            heapq.heappush(heap,(nel.val, curcnt, nel))
+            heapq.heappush(heap,(nel,curcnt))
 
     
     return enerTaken 
@@ -127,7 +127,7 @@ def para():
       gridT = copy.deepcopy(grid)
       newgridT = [[-1 for x in range(j)] for y in range (i)]
 
-      gridF = copy.deepcopy(grid)
+      gridF = copy.deepcopy(gridF)
       #newgridF = [[-1 for x in range(j)] for y in range (i)]
 
       newL = bfs(grid,newGrid, i, j)
