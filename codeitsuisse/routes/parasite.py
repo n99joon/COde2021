@@ -67,7 +67,7 @@ def para():
       
       for x in range (i):
         for y in range (j):
-          if infectedGrid[i][j]==1:
+          if infectedGrid[x][y]==1:
             tt = -1
             break
 
