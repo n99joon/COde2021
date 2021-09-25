@@ -21,12 +21,12 @@ def aster():
   logging.info("data sent for evaluation {}".format(data))
   tc = data.get("test_cases")
   for test in tc:
-    maxp=0
+    maxp=0.0
     maxi=0
     #moving middle points
     for k in range(len(test)):
       #logging.info("k {}".format(k))
-      kp =0
+      kp =0.0
       if (k==0 or k==len(test)-1):
         continue
       stack=[]
@@ -35,7 +35,7 @@ def aster():
       #logging.info("stack {}".format(stack))
       j = k+1
       while j<len(test) and len(stack)>0:
-        curp = 0
+        curp = 0.0
         if(j==k+1 and test[k]==test[j] and test[j]==test[k-1]):
           curp+=1
         elif(j==k+1):
