@@ -39,14 +39,15 @@ def bfs(grid,newGrid, i, j):
 
 @app.route('/parasite', methods=['POST'])
 def para():
+    ret =[]
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     for dt in data:
-      room = data.get("room")
-      grid = data.get("grid")
+      room = dt.get("room")
+      grid = dt.get("grid")
       j = len(grid)
       i = len(grid[0])
-      indiv = data.get("interestedIndividuals")
+      indiv = dt.get("interestedIndividuals")
       newGrid = [[-1 for x in range(j)] for y in range (i)]
       newGrid = bfs(grid,newGrid, i, j)
       
@@ -59,4 +60,5 @@ def para():
       ans = []
       ans.append({"room": room, "p1": pOne, "p2": 0, "p3": 0, "p4": 0})
       logging.info("My result :{}".format(ans))
-      return json.dumps(ans)
+      ret.append(ans)
+    return json.dumps(ret)
