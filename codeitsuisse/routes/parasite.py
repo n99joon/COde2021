@@ -55,5 +55,7 @@ def para():
       ni = int(k[:idx])
       nj = int(k[idx+1:])
       pOne[k]=newGrid[ni][nj]
-    logging.info("My result :{}".format(pOne))
-    return json.dumps(pOne)
+    ans = []
+    ans.append({"room": room, "p1": pOne})
+    logging.info("My result :{}".format(ans))
+    return json.dumps(ans)
