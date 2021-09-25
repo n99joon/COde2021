@@ -47,6 +47,9 @@ def bfsthree(grid,newGrid, i, j):
                 start = [x,y];
                 newGrid[x][y]=0
                 break
+    logging.info("start {}".format(start))
+    logging.info("grid {}".format(grid))
+    logging.info("newGrid {}".format(newGrid))
     queue = [start]
     while queue:
       v = queue.pop(0)
