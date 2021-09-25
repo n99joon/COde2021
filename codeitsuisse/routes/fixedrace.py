@@ -15,10 +15,10 @@ ymov = [0,1,0,-1,1,1,-1,-1]
 
 
 @app.route('/fixedrace', methods=['POST'])
-def fixedr():
+def fixedrace(fixedrace: str):
   ret =[]
-  data = request.json.get()
-  logging.info("data sent for evaluation {}".format(data))
+  
+  logging.info("data sent for evaluation {}".format(fixedrace))
   tc = data.get("test_cases")
  
   ret.append({"input": test, "score": maxp, "origin": maxi})
