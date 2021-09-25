@@ -57,6 +57,7 @@ def fixedr():
   ret =[]
   data=request.data
   logging.info("data sent for evaluation {}".format(data))
+  data=str(data)
   if(data[0]=="0"):
     winner = data[1:]
     myinput(winner)
