@@ -63,7 +63,7 @@ def fixedr():
   else:
     inp =data
     ans=""
-    inpsplit = inp.split(,)
+    inpsplit = inp.split(",")
     for a in inpsplit:
       if not a in dict:
         dict[a]=n
