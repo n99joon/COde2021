@@ -64,7 +64,7 @@ def aster():
         elif(curp<=10):
           kp+=1.5*curp
         else:
-            kp+=curp*2
+          kp+=curp*2
       logging.info("reached end of mid point kp {}".format([kp]))
       if(kp>maxp):
         maxi=k
