@@ -100,7 +100,7 @@ def fixedr():
       logging.info("not yet :{}".format(ret))
       logging.info("cur dict : {}".format(dict))
       logging.info("edgePointed :{}".format(edgePointed))
-      logging.info("edgePointedTo :{}".format(edgePointedTo))
+      logging.info("edgePointTo :{}".format(edgePointTo))
       return json.dumps([])
     else:
       logging.info("My result :{}".format(ans))
