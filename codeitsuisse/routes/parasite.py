@@ -100,7 +100,7 @@ def para():
 
       ThrL = bfs(grid,newGrid,i,j)
       infectedG = ThrL[0]
-      ttt = Thr[1]
+      ttt = ThrL[1]
       for x in range (i):
         for y in range (j):
           if infectedG[x][y]==1:
