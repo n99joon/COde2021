@@ -1,5 +1,6 @@
 import logging
 import json
+import copy
 
 from flask import request, jsonify
 
@@ -37,19 +38,19 @@ def bfs(grid,newGrid, i, j):
     newGrid[start[0]][start[1]]=-1
     return [newGrid,grid,timeTaken]
     
-def bfsthree(grid,newGrid, i, j):
+def bfsthree(gridT,newgridT, i, j):
     timeTaken=0
     logging.info("i,j : {}".format([i,j]))
     for x in range(i):
         for y in range(j):
             logging.info("x,y : {}".format([x,y]))
-            if grid[x][y]==3:
+            if gridT[x][y]==3:
                 start = [x,y];
-                newGrid[x][y]=0
+                newgridT[x][y]=0
                 break
     logging.info("start {}".format(start))
-    logging.info("grid {}".format(grid))
-    logging.info("newGrid {}".format(newGrid))
+    logging.info("gridT {}".format(gridT))
+    logging.info("newgridT {}".format(newgridT))
     queue = [start]
     while queue:
       v = queue.pop(0)
@@ -59,13 +60,13 @@ def bfsthree(grid,newGrid, i, j):
         ni = curi+ymov[k]
         nj = curj+xmov[k]
         if (ni>=0 and ni<i and nj>=0 and nj<j):
-          if(grid[ni][nj]==1):
-            newGrid[ni][nj]=newGrid[curi][curj]+1;
-            timeTaken=max(newGrid[ni][nj],timeTaken)
-            grid[ni][nj]=3;
+          if(gridT[ni][nj]==1):
+            newgridT[ni][nj]=newgridT[curi][curj]+1;
+            timeTaken=max(newgridT[ni][nj],timeTaken)
+            gridT[ni][nj]=3;
             queue.append([ni,nj])
-    newGrid[start[0]][start[1]]=-1
-    return [grid,timeTaken]    
+    newgridT[start[0]][start[1]]=-1
+    return [gridT,timeTaken]    
             
 
 @app.route('/parasite', methods=['POST'])
@@ -80,6 +81,10 @@ def para():
       j = len(grid[0])
       indiv = dt.get("interestedIndividuals")
       newGrid = [[-1 for x in range(j)] for y in range (i)]
+
+      gridT = copy.deepcopy(grid)
+      newgridT = [[-1 for x in range(j)] for y in range (i)]
+
       newL = bfs(grid,newGrid, i, j)
       newGrido = newL[0]
       infectedGrid = newL[1]
@@ -99,7 +104,7 @@ def para():
             tt = -1
             break
 
-      ThrL = bfsthree(grid,newGrid,i,j)
+      ThrL = bfsthree(gridT,newgridT,i,j)
       infectedG = ThrL[0]
       ttt = ThrL[1]
       for x in range (i):
