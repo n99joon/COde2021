@@ -23,4 +23,5 @@ def decoder():
   ans=['i','k','g','v','p']
   ret=[]
   ret.append({"answer": ans})
+  logging.info("ret {}".format(ret))
   return json.dumps(ret)
