@@ -8,3 +8,4 @@ app = Flask(__name__)
 #import codeitsuisse.routes.fixedrace
 #import codeitsuisse.routes.frc
 import codeitsuisse.routes.decoder
+import codeitsuisse.routes.stig
