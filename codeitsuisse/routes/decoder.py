@@ -21,7 +21,5 @@ def decoder():
   num = data.get("num_slots")
   history = data.get("history")
   ans=['i','k','g','v','p']
-  ret=[]
-  ret.append({"answer": ans})
-  logging.info("ret {}".format(ret))
+  ret={"answer": ans}
   return json.dumps(ret)
