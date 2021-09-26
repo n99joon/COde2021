@@ -20,6 +20,7 @@ def decoder():
   pv = data.get("possible_values")
   num = data.get("num_slots")
   history = data.get("history")
-  ans=['u','d','g','w','i']
-
-  return json.dumps(ans)
+  ans=['i','k','g','v','p']
+  ret=[]
+  ret.append({"answer": ans})
+  return json.dumps(ret)
