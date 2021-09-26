@@ -22,4 +22,4 @@ def decoder():
   history = data.get("history")
   ans=['u','d','g','w','i']
 
-  return ans
+  return json.dumps(ans)
