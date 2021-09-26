@@ -1,1 +1,26 @@
+import logging
+import json
+import copy
+from decimal import Decimal
+import math
 
+from flask import request, jsonify
+
+from codeitsuisse import app
+
+logger = logging.getLogger(__name__)
+
+@app.stig('/stig/perry', methods=['POST'])
+def stig():
+  data=request.data
+  data=str(data)
+  data=data[2:-1]
+  data = json.loads(data)
+  logging.info("data sent for evaluation {}".format(data))
+  pv = data.get("possible_values")
+  num = data.get("num_slots")
+  history = data.get("history")
+  ans=['i','e','b','l','m']
+  ret={"answer": ans}
+  logging.info("ret {}".format(ret))
+  return json.dumps(ret)
